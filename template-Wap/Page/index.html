@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>考勤</title>
+    <link rel="stylesheet" href="http://localhost/js/lib/mui/mui.css" />
+    <link rel="stylesheet" href="http://localhost/css/default.css" />
+    <link rel="stylesheet" href="http://localhost/css/index.css" />
+    <style>
+      .BMapLabel {
+        padding: 0.5em 1em !important;
+        border: none;
+        background-color: #ffffff;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="mui-content check">
+      <div class="searchbox">
+        <div class="mui-input-row check-icon">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="日期搜索"
+            onfocus="(this.type='date')"
+          />
+        </div>
+      </div>
+      <div class="mapbox" id="map"></div>
+      <div class="addrlist">
+        <ul
+          class="mui-table-view mui-row"
+          style="overflow:hidden"
+          id="orderList"
+        >
+          <li
+            class="mui-table-view-cell mui-media box-shade"
+            v-for="item in items"
+          >
+            <div class="mui-col-xs-12 mui-row order">
+              <div
+                :class="'mui-media-body mui-col-xs-6 item-left check-icon ' + item.icon "
+              >
+                <p class="mui-ellipsis order-icon order-addr">
+                  {{ item.time01 }}
+                </p>
+                <p class="mui-ellipsis order-icon order-tel">
+                  {{ item.addr }}
+                </p>
+              </div>
+              <div class="item-center">
+                <div class="time">{{ item.time }}</div>
+                <div class="flag">{{ item.flag }}</div>
+              </div>
+              <img
+                class="mui-media-object mui-pull-right order-img mui-col-xs-2 item-right"
+                src="http://localhost/images/check-icon03.png"
+                alt=""
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="http://localhost/js/lib/jquery/jquery-3.3.1.min.js"></script>
+    <script src="http://localhost/js/lib/vue/vue.js"></script>
+  </body>
+  <script src="http://api.map.baidu.com/api?v=2.0&amp;ak=j0QFa27yhhMmDOy9rmR0t4P6"></script>
+  <script src="http://localhost/js/index.js"></script>
+</html>
